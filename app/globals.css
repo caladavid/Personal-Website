@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: #e9e9ea;
+    color: #151819;
+    font-family: var(--SourceSansPro-font);
+    height: 100%;
+    font-size: 18px;
+}
+
+::selection {
+    background: #a4a3a3;
+}
+
+html{
+    height: 100%;
+}
+
+button.stickyNav{
+    position: fixed;
+    top: 20px;
+    right: 0;
+    background-color: #ea5924;
+    padding: 1.5rem;
+    z-index: 25;
+}
+
+.projectsImages{
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+}
+
+.noise{
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    opacity: .9;
+    z-index: -5;
+}
+
+.noiseBlack{
+    position: absolute;
+    top: 0;
+    left: -50%;
+    right: -50%;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url('http://assets.iceable.com/img/noise-transparent.png');
+    background-repeat: repeat;
+    animation: bg-animationBlack .2s infinite;
+    opacity: .9;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
+
+@keyframes bg-animationBlack {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-5%); }
+    20% { transform: translateX(-10%); }
+    30% { transform: translateX(5%); }
+    40% { transform: translateX(-5%); }
+    50% { transform: translateX(-10%); }
+    60% { transform: translateX(15%); }
+    70% { transform: translateX(0); }
+    80% { transform: translateX(-15%); }
+    90% { transform: translateX(10%); }
+    100% { transform: translateX(5%); }
+  }
+
+@layer base {
+    html {
+      @apply scroll-smooth;
+    }
+  }
