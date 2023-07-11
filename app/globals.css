@@ -42,7 +42,7 @@ button.stickyNav{
     bottom: -50%;
     width: 200%;
     height: 200vh;
-    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background: transparent url('../public/images/noise-transparent.png') repeat 0 0;
     background-repeat: repeat;
     animation: bg-animation .2s infinite;
     opacity: .9;
@@ -57,7 +57,7 @@ button.stickyNav{
     bottom: 0;
     width: 200%;
     height: 100%;
-    background-image: url('http://assets.iceable.com/img/noise-transparent.png');
+    background-image: url('../public/images/noise-transparent.png');
     background-repeat: repeat;
     animation: bg-animationBlack .2s infinite;
     opacity: .9;

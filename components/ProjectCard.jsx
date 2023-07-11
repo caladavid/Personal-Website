@@ -30,8 +30,8 @@ const ProjectCard = ({ title, number, info, src, githubLink, webLink, desc }) =>
                 ))}
               </span>
               <span className='flex gap-4'>
-                {githubLink && <a href={githubLink} target="_blank" rel="noreferrer"><GithubSVG width={20} className="hover:fill-orange transition-all" /></a>}
-                {webLink && <a href={webLink} target="_blank" rel="noreferrer"><WebLink width={20} className="hover:fill-orange transition-all" /></a>}
+                {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" aria-label='Github Link'><GithubSVG width={25} className="hover:fill-orange transition-all"/></a>}
+                {webLink && <a href={webLink} target="_blank" rel="noreferrer" aria-label='Website Link'><WebLink width={25} className="hover:fill-orange transition-all"/></a>}
               </span>
             </div>
             <div className='hidden min-[350px]:block text-right '>
