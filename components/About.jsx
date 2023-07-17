@@ -11,7 +11,7 @@ import '../app/globals.css'
 
 const About = () => {
   return (
-    <section id="about" className="pb-20">
+    <section id="about" className="pb-20 md:my-10">
       <Wrapper>
         <h2 className="break-words font-semibold text-[#000] uppercase text-5xl sm:text-7xl md:text-8xl lg:text-8xl pt-20 pb-9 ml-5 ">About</h2>
         <div className="flex flex-col min-[769px]:flex-row gap-12 md:pt-11 ">
