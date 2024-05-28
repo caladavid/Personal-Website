@@ -35,6 +35,8 @@ const About = () => {
               <ul className="flex flex-wrap gap-8 text-lg text-center">
                 <Swiper
                   breakpoints={{
+                    100: { slidesPerView: 1, spaceBetween: 20 },
+                    210: { slidesPerView: 2, spaceBetween: 20 },
                     320: { slidesPerView: 3, spaceBetween: 40 },
                     480: { slidesPerView: 4, spaceBetween: 40 },
                   }}
