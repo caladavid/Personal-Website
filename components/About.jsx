@@ -6,8 +6,20 @@ import PythonSvg from "./svg/PythonSVG"
 import ReactSVG from "./svg/ReactSVG"
 import TailwindSVG from "./svg/TailwindSVG"
 import Wrapper from "./Wrapper"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, } from 'swiper/modules';
 
 import '../app/globals.css'
+import 'swiper/css';
+
+
+const skills = [
+  { icon: JsSVG, label: "Javascript" },
+  { icon: ReactSVG, label: "React" },
+  { icon: NextjsSVG, label: "Next.js" },
+  { icon: TailwindSVG, label: "Tailwind CSS" },
+  { icon: PythonSvg, label: "Python" },
+];
 
 const About = () => {
   return (
@@ -21,32 +33,35 @@ const About = () => {
             <div>
               <p className="mb-4 text-lg">Here are a few technologies I&rsquo;ve been working with recently:</p>
               <ul className="flex flex-wrap gap-8 text-lg text-center">
-                <li>
-                  <JsSVG width={56} className="hover:fill-orange m-auto flex-1"/>
-                  <p>Javascript</p>
-                </li>
-                <li>
-                  <ReactSVG width={56} className="hover:fill-orange m-auto flex-1"/>
-                  <p>React</p>
-                </li>
-                <li>
-                  <NextjsSVG width={56} className="hover:fill-orange m-auto flex-1"/>
-                  <p>Next.js</p>
-                </li>
-                <li>
-                  <TailwindSVG width={56} className="hover:fill-orange m-auto flex-1" />
-                  <p>Tailwind CSS</p>
-                </li>
-                <li>
-                  <PythonSvg width={56} className="hover:fill-orange m-auto flex-1"/>
-                  <p>Python</p>
-                </li>
+                <Swiper
+                  breakpoints={{
+                    320: { slidesPerView: 3, spaceBetween: 40 },
+                    480: { slidesPerView: 4, spaceBetween: 40 },
+                  }}
+                  slidesPerView={4}
+                  spaceBetween={5}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  modules={[Autoplay]}
+                >
+                  {skills.map((skill, index) => (
+                    <SwiperSlide key={index}>
+                      <li className="text-center">
+                        <skill.icon width={56} className="hover:fill-orange m-auto flex-1" />
+                        <p>{skill.label}</p>
+                      </li>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </ul>
             </div>
           </div>
           <div className="w-full mx-auto md:w-1/2">
             <div className="flex w-max relative mx-auto group">
-              <Image 
+              <Image
                 src={Photo}
                 alt="David Cala"
                 className="w-[250px] h-[400px] sm:w-[300px] sm:h-[400px] lg:w-[400px] lg:h-[500px] rounded-md -z-10 object-cover bg-no-repeat"

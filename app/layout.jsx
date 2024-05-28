@@ -1,9 +1,9 @@
 import Header from '@/components/Header'
-import { Source_Sans_Pro } from '@next/font/google'
+import { Source_Sans_3 } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 
-const SourceSansPro = Source_Sans_Pro({
+const SourceSans3 = Source_Sans_3({
   subsets: ['latin'],
   weight: ['300', '400', '600', '700'],
   variable: '--SourceSansPro-font'
@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={SourceSansPro.className}>
+      <body className={SourceSans3.className}>
         <Header />
           <main className='overflow-hidden'>{children}</main>
         <Footer />

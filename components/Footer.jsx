@@ -4,7 +4,7 @@ import GithubSVG from './svg/GithubSVG'
 import LinkedinSVG from './svg/LinkedinSVG'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <Wrapper>
