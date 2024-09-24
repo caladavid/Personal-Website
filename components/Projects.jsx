@@ -1,8 +1,8 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
-import ArsertijoPortfolio from "../public/images/Arsertijo-website.png"
+import Chatelity from "../public/images/Chatelity.png"
 import MP3Vault from "../public/images/MP3Vault.png"
-import CleanerGDC from "../public/images/CleanerGDC.png"
+import SpoilAvoider from "../public/images/Spoil-Avoider.png"
 import Astralea from "../public/images/astralea.png"
 
 import '../app/globals.css'
@@ -26,12 +26,12 @@ const Projects = () => {
 
                     <ProjectCard 
                         number="02"
-                        title="Arsertijo's portfolio"
-                        info={['React', 'Tailwind CSS']}
-                        src={ArsertijoPortfolio}
-                        desc="Discover the impressive web portfolio tailored for Arsertijo Artz. Dive into a collection of their finest work, showcasing their unique design style, creative talent, and passion for crafting visually captivating experiences"
-                        githubLink='https://github.com/caladavid/arsertijo'
-                        webLink='https://arsertijo.netlify.app/'
+                        title="Chatelity"
+                        info={['React','JWT', 'MERN stack', 'Socket.io']}
+                        src={Chatelity}
+                        desc="Chatelity is a robust and scalable real-time chat application built with the MERN stack, Socket.io, and JWT. It offers seamless communication, user authentication, and global state management, providing a comprehensive solution for your real-time messaging needs."
+                        githubLink='https://github.com/caladavid/Chatelity-mern-chat-app'
+                        webLink='https://chatelity-mern-chat-app.onrender.com/'
                     />
 
                     <ProjectCard 
@@ -45,11 +45,11 @@ const Projects = () => {
 
                     <ProjectCard 
                         number="04"
-                        title='CleanerGDC'
-                        info={['Python']}
-                        src={CleanerGDC}
-                        desc="CleanerGDC is a specialized desktop application designed exclusively for the technical support staff of Gobierno Del Distrito Capital (GDC). Its primary objective is to streamline and simplify their maintenance tasks, ensuring efficiency and effectiveness in system maintenance."
-                        githubLink='https://github.com/caladavid/CleanerGDC.git'
+                        title='Spoil Avoider'
+                        info={['HTML', 'CSS', 'Javascript']}
+                        src={SpoilAvoider}
+                        desc="Spoil Avoider is a Chrome extension designed to help you avoid spoilers while watching videos on YouTube. This tool intelligently blurs out any content related to spoilers for the shows or movies you're interested in, enhancing your viewing experience."
+                        githubLink='https://github.com/caladavid/Spoil-Avoider-extension'
                     />
                 </div>
             </div>
