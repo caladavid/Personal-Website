@@ -10,7 +10,7 @@ const SourceSans3 = Source_Sans_3({
 })
 
 export const metadata = {
-  title: 'David Cala',
+  title: 'David Cala | Full-Stack Developer',
   description: 'David Cala a passionate problem-solver who loves building things from scratch.',
   author: 'David Cala',
 }

@@ -7,10 +7,13 @@ import Logo from "./svg/Logo";
 import { AnimatePresence, motion } from "framer-motion";
 
 import '../app/globals.css'
+import { usePathname } from "next/navigation";
 
 const Header = () => {
     const [sticky, setSticky] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+      const pathname = usePathname();
+      const isHomePage = pathname === "/"
 
     const close = () => setIsMenuOpen(false)
 
@@ -28,7 +31,7 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="relative flex justify-between w-11/12 2xl:w-3/4 m-auto transition-all border-b-[1px] text-black/80 border-black/80 overflow-hidden">
+            <nav className={`${isHomePage ? "border-b-[1px] text-black/80 border-black/80" : ""} relative flex justify-between w-11/12 2xl:w-3/4 m-auto transition-all  overflow-hidden`}>
                 <div className="text-base lg:text-lg p-9 uppercase">
                     <a className="hover:text-orange"
                     href='/' aria-label="Logo"><Logo width={50} className='hover:fill-white transition-all'/></a>
@@ -58,14 +61,17 @@ const Header = () => {
                         <a href='#about'>About</a>
                     </li>
                     <li className="hover:text-orange transition-all">
-                        <a href='#projects'>Projects</a>
+                        <a href='/#experience'>Experience</a>
                     </li>
                     <li className="hover:text-orange transition-all">
-                        <a href='#contact'>Contact</a>
+                        <a href='/#projects'>Projects</a>
                     </li>
-                    <li>
+                    <li className="hover:text-orange transition-all">
+                        <a href='/#contact'>Contact</a>
+                    </li>
+                    {/* <li>
                         <a href='/docs/DavidCalaResume.pdf' download className="hover:bg-[#c94d20] text-grey  bg-orange py-4 p-8 rounded-md transition-all">Resume</a>
-                    </li> 
+                    </li>  */}
                 </ul>
             </nav>
         </header>

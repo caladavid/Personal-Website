@@ -5,19 +5,23 @@ import Image from "next/image"
 import GithubSVG from './svg/GithubSVG';
 import WebLink from './svg/WebLink';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 
 
-const ProjectCard = ({ title, number, info, src, githubLink, webLink, desc }) => {
+const ProjectCard = ({ title, number, info = false, src, githubLink, webLink, desc = false }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleToggle = () => {
     setExpanded(!expanded)
   };
 
+  const titleFixed = title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
   return (
     <div>
-      <div className={`w-full ${expanded ? 'bg-[#212425] rounded-3xl ' : 'border-b-[1px] hover:bg-[#212425]'} hidden md:block transition-all cursor-pointer py-6 px-4  md:p-12 lg:p-16 border-grey/80`}
-        onClick={handleToggle}>
+      <Link href={`/projects/${titleFixed}`} className={`w-full ${expanded ? 'bg-[#212425] rounded-3xl ' : 'border-b-[1px] '}hover:bg-[#212425] hidden md:block transition-all cursor-pointer py-6 px-4  md:p-12 lg:p-16 border-grey/80`}>
+        {/* <div className={`w-full ${expanded ? 'bg-[#212425] rounded-3xl ' : 'border-b-[1px] hover:bg-[#212425]'} hidden md:block transition-all cursor-pointer py-6 px-4  md:p-12 lg:p-16 border-grey/80`}
+        onClick={handleToggle}> */}
         <div className='flex w-full justify-between uppercase '>
           <div className='hidden sm:block mt-4 pr-4 sm:pr-8 md:pr-10 lg:pr-16 xl:pr-20 text-orange min-w-min'>
             <span className='text-xl lg:text-2xl font-semibold'>{number}</span>
@@ -25,13 +29,15 @@ const ProjectCard = ({ title, number, info, src, githubLink, webLink, desc }) =>
           <div className='w-full sm:w-3/5 md:w-[60%] min-[1060px]:w-3/4 flex flex-col'>
             <p className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold row-start-1 col-span-2 mb-4'>{title}</p>
             <span className='flex gap-3 mb-2'>
-              {info.map((item, index) => (
-                <p key={index} className='row-start-2 text-sm md:text-lg'>{item}</p>
+              {/* <p className='normal-case text-base py-2'>{desc}</p> */}
+              {info && info.map((item, index) => (
+                <p key={index} className=' row-start-2 text-sm md:text-lg'>{item}</p>
               ))}
             </span>
             <span className='flex gap-4'>
               {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" aria-label='Github Link'><GithubSVG width={25} className="hover:fill-orange transition-all" /></a>}
               {webLink && <a href={webLink} target="_blank" rel="noreferrer" aria-label='Website Link'><WebLink width={25} className="hover:fill-orange transition-all" /></a>}
+              {/* <Link href={`/projects/${titleFixed}`}>More</Link> */}
             </span>
           </div>
           <div className='hidden min-[350px]:block text-right '>
@@ -54,31 +60,34 @@ const ProjectCard = ({ title, number, info, src, githubLink, webLink, desc }) =>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-      <div className='md:hidden relative bg-[#212425] p-6'>
-          <Image
-            src={src}
-            alt={title}
-            className="w-full h-auto object-cover 2xl:max-h-[610px]"
-          />
+        {/* </div> */}
+      </Link>
 
-          <div className='flex w-full flex-col py-4'>
-            <a href={webLink ? webLink : githubLink} target="_blank" rel="noreferrer" aria-label='Website Link' className='text-orange uppercase text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold row-start-1 col-span-2 mb-4 after:absolute after:z-0 after:top-0 after:left-0  after:w-full after:h-full'>{title}</a>
-            <div className='w-full flex flex-col'>
-              <p  className='py-4 z-[2]'>{desc}</p>
-              <span className='flex gap-3 mb-2 uppercase pt-4 z-[2]'>
-                {info.map((item, index) => (
-                  <p key={index} className='row-start-2 text-sm md:text-lg '>{item}</p>
-                ))}
-              </span>
-              <span className='w-max flex gap-4 pt-2 z-[2]'>
-                {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" aria-label='Github Link'><GithubSVG width={25} className="hover:fill-orange transition-all" /></a>}
-                {webLink && <a href={webLink} target="_blank" rel="noreferrer" aria-label='Website Link'><WebLink width={25} className="hover:fill-orange transition-all" /></a>}
-              </span>
-            </div>
+
+      <div className='md:hidden relative bg-[#212425] hover:bg-[#363a3b] p-6'>
+        <Image
+          src={src}
+          alt={title}
+          className="w-full h-auto object-cover 2xl:max-h-[610px]"
+        />
+
+        <a href={`/projects/${titleFixed}`} className='flex w-full flex-col py-4'>
+          <span  aria-label='Website Link' className='text-orange uppercase text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold row-start-1 col-span-2 mb-4 after:absolute after:z-0 after:top-0 after:left-0  after:w-full after:h-full'>{title}</span>
+          <div className='w-full flex flex-col'>
+            <p className='py-4 z-[2]'>{desc}</p>
+            <span className='flex gap-3 mb-2 capiz pt-4 z-[2]'>
+              {info && info.map((item, index) => (
+                <p key={index} className='hidden md:block row-start-2 text-sm md:text-lg '>{item}</p>
+              ))}
+            </span>
+            <span className='w-max flex gap-4 pt-2 z-[2]'>
+              {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" aria-label='Github Link'><GithubSVG width={25} className="hover:fill-orange transition-all" /></a>}
+              {webLink && <a href={webLink} target="_blank" rel="noreferrer" aria-label='Website Link'><WebLink width={25} className="hover:fill-orange transition-all" /></a>}
+            </span>
           </div>
-        </div>
-    </div>
+        </a>
+      </div>
+    </div >
   )
 }
 

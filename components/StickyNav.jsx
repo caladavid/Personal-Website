@@ -42,14 +42,17 @@ const StickyNav = ({ isOpen, close }) => {
               <a href='#about' className="md:text-xl text-white hover:text-orange transition-all" onClick={() => close()}>About</a>
             </li>
             <li>
+              <a href='#experience' className="md:text-xl text-white hover:text-orange transition-all" onClick={() => close()}>My experiences</a>
+            </li>
+            <li>
               <a href='#projects' className="md:text-xl text-white hover:text-orange transition-all" onClick={() => close()}>Projects</a>
             </li>
             <li>
               <a href='#contact' className="md:text-xl text-white hover:text-orange transition-all" onClick={() => close()}>Contact</a>
             </li>
-            <li>
+            {/* <li>
               <a href='/docs/DavidCalaResume.pdf' download className="hover:bg-orange  md:text-xl text-white border-2 border-orange hover:transition-all py-4 p-8 rounded-md">Resume</a>
-            </li>
+            </li> */}
           </motion.ul>
         </motion.div>
       )}
