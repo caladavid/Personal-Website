@@ -11,7 +11,7 @@ export function getProjectsDataBySlug(slug) {
             "role": "Frontend Developer",
             "description": "An anime exploration platform that helps users browse, search, and discover series, characters, and reviews with a smooth and modern interface.",
             "technologies": ["Next.js", "TailwindCSS", "Jikan API"],
-            "problem":  "Anime fans often struggle to find a clean, fast, and spoiler-free platform to browse seasonal content. Existing platforms were either too cluttered or lacked responsiveness and filtering options.",
+            "problem": "Anime fans often struggle to find a clean, fast, and spoiler-free platform to browse seasonal content. Existing platforms were either too cluttered or lacked responsiveness and filtering options.",
             "solution": "I built a dynamic anime discovery platform using Next.js and TailwindCSS, integrating the Jikan API to fetch real-time data from MyAnimeList. The frontend included filters by season, genre, and popularity, with dynamic routing for each anime detail page. Animations were implemented using Framer Motion to enhance user experience.",
             "result": "A user-friendly anime discovery platform with detailed views and smooth performance.",
             "url": "https://astralea.vercel.app/",
@@ -130,10 +130,14 @@ const Page = ({ params }) => {
                             }
                         </span>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="text-black font-semibold">Live Site</span>
-                        <a className="underline w-fit" href={project.url} rel="noopener noreferrer" target="_blank" >{project.title}</a>
-                    </div>
+                    {
+                        project.url && (
+                            <div className="flex flex-col">
+                                <span className="text-black font-semibold">Live Site</span>
+                                <a className="underline w-fit" href={project.url} rel="noopener noreferrer" target="_blank" >{project.title}</a>
+                            </div>
+                        )
+                    }
                     {
                         project.github && (
                             <div className="flex flex-col">
