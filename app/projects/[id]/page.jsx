@@ -66,11 +66,11 @@ export function getProjectsDataBySlug(slug) {
         {
             "slug": "mp3vault",
             "title": "MP3Vault",
-            "role": "Backend Developer",
-            "description": "A backend service that lets users download and convert YouTube videos to MP3 format while cleaning metadata and filenames.",
-            "technologies": ["Python", "yt-dlp", "ffmpeg"],
+            "role": "Desktop Application Developer",
+            "description": "A desktop application that lets users download and convert YouTube videos to MP3 format with metadata editing and filename cleaning capabilities.",
+            "technologies": ["Python", "yt-dlp", "CustomTkinter", "mutagen", "threading"],
             "problem": "Users needed a tool to download audio from YouTube videos while preserving metadata.",
-            "solution": "Developed a backend service using Python and Flask that downloads and converts YouTube videos to MP3. It cleans filenames, extracts metadata, and supports multi-threaded downloads. Integrated `yt-dlp` and `ffmpeg` for processing.",
+            "solution": "Developed a desktop application using Python and CustomTkinter that downloads and converts YouTube videos to MP3. It cleans filenames, extracts metadata, and supports multi-threaded downloads. Integrated yt-dlp and mutagen for processing.",
             "result": "A robust tool for fast and clean YouTube audio downloads with proper formatting and metadata.",
             "github": "github.com/caladavid/MP3Vault",
             "images": [
